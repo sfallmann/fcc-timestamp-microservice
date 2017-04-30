@@ -4,7 +4,7 @@
   "description": "Freecodecamp: API Projects - Timestamp Microservice",
   "main": "server.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "mocha *.test.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "moment": "^2.18.1"
   },
   "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^3.3.0",
     "nodemon": "^1.11.0"
   }
 }

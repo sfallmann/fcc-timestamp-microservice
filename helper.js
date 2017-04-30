@@ -12,11 +12,10 @@ function parseStr(str) {
   //     "Nov 3 1972", "Nov 3, 1972"
   // this will even allow for additional formatting such as 11 3 1972
   return (str.split(' ').filter((val) => {
-    return val !== ' ' && val !== '' && val !== ',';
-  })).map((val) => {
-    return val.replace(/,/g, '');
-  }).join(' ');
-
+    if (val.indexOf(' ') === -1 && val.indexOf(',') === -1 && val.length > 0) {
+      return val;
+    }
+  })).join(' ');
 }
 
 function timeInMs(str) {
@@ -26,15 +25,16 @@ function timeInMs(str) {
   if (!isNumber(str)) {
     date = new Date(parseStr(str));
   } else {
-    // convert the str to a number in seconds
+    // convert the str to a number in ms
     date = new Date((Number(str) * 1000));
   }
-
   // if the date is invalid date.getTime() will not be a number
   return isNumber(date.getTime()) ? date.getTime() : null;
 
 }
 
 module.exports = {
+  isNumber,
+  parseStr,
   timeInMs
 };
