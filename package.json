@@ -4,6 +4,7 @@
   "description": "Freecodecamp: API Projects - Timestamp Microservice",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "mocha *.test.js"
   },
   "repository": {
